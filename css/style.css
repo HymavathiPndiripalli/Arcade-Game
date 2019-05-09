@@ -1,12 +1,16 @@
+/* body */
 body {
   text-align: center;
 }
 
+/* media queries for mobile view */
 @media only screen and (max-width:480px) {
   canvas {
     width: 100%;
   }
 }
+
+/* media queries for tablet view */
 @media only screen and (min-width:481px) and (max-width:780px) {
   canvas {
     width: 100%;

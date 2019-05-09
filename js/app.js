@@ -11,8 +11,10 @@ var Enemy = function(x, y, speed) {
   // a helper we've provided to easily load images
   this.sprite = 'images/enemy-bug.png';
 };
-class Player{
-  constructor(x,y){
+
+//Player class
+class Player {
+  constructor(x, y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
@@ -32,7 +34,6 @@ Enemy.prototype.update = function(dt) {
   if (this.x > 505) {
     this.x = 0;
   }
-  // console.log(player.x,player.y);
   if (this.x + 60 > player.x && this.x < player.x + 65 && this.y + 60 > player.y && this.y < player.y + 70) {
     player.x = 200;
     player.y = 410;
@@ -40,6 +41,8 @@ Enemy.prototype.update = function(dt) {
 
 
 };
+
+//update player position
 Player.prototype.update = function(dt) {
   if (this.x == Enemy.x && this.y == Enemy.y) {
     Player.x = 200;
@@ -81,7 +84,7 @@ Player.prototype.handleInput = function(key) {
   else if (key == "down" && this.y < 400)
     this.y += 85;
   if (this.y < 60) {
-    setTimeout(()=> {
+    setTimeout(() => {
       player.x = 200;
       player.y = 410;
     }, 800);
