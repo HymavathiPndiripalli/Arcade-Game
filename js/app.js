@@ -42,20 +42,8 @@ Enemy.prototype.update = function(dt) {
 
 };
 
-//update player position
-Player.prototype.update = function(dt) {
-  if (this.x == Enemy.x && this.y == Enemy.y) {
-    Player.x = 200;
-    Player.y = 410;
-  }
-
-};
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
-Player.prototype.render = function() {
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -63,6 +51,9 @@ Player.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
+Player.prototype.render = function() {
+  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
@@ -85,8 +76,8 @@ Player.prototype.handleInput = function(key) {
     this.y += 85;
   if (this.y < 60) {
     setTimeout(() => {
-      player.x = 200;
-      player.y = 410;
+      this.x = 200;
+      this.y = 410;
     }, 800);
   }
 }
